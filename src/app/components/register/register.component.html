@@ -1,0 +1,28 @@
+<div class="card">
+    <h2>Registration Page</h2>
+    <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput type="text" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Mobile</mat-label>
+        <input matInput type="number" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="eye-content">
+        <mat-label>Password</mat-label>
+        <input matInput type="{{passwordDisplay?'text':'password'}}" required>
+        <i class="{{passwordDisplay?'fa-solid fa-eye  eye':'fa-regular fa-eye-slash eye'}}"
+            (click)="togglePassDisplay()"></i>
+    </mat-form-field>
+    <mat-form-field appearance="outline" class="eye-content">
+        <mat-label>Conform Password</mat-label>
+        <input matInput type="{{conPassDisplay ? 'text' : 'password'}}" required>
+        <i class="{{conPassDisplay ? 'fa-solid fa-eye eye' : 'fa-regular fa-eye-slash eye'}}"
+            (click)="toggleConPassDisplay()"></i>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Register</button>
+</div>

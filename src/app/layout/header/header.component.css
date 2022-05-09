@@ -1,0 +1,13 @@
+.profile-pick{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.logo-img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.dropdown-menu{
+    min-width: 120px;
+}

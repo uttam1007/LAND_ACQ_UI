@@ -1,0 +1,77 @@
+<div class="sidebar-container resSideWidth">
+    <i class='fa-solid fa-bars menu-icon' (click)="toggleSidebar('.sidebar-container','resSideWidth')"></i>
+    <div class="menu-icon-container">
+        <div class="icon">
+            <i class='fa-solid fa-house icon-col'></i>
+        </div>
+        <div class="menu">
+            <ul>
+                <li routerLink="/main/dashboard">Deshboard</li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-icon-container">
+        <div class="icon">
+            <i class='fa-solid fa-store icon-col'></i>
+        </div>
+        <div class="menu">
+            <ul class="menu-items">
+                <li>
+                    Record
+                    <ul class="sub-menu-outer">
+                        <li><a routerLink="/main/record">Add Record</a></li>
+                    </ul>
+                </li>
+                <i class="fa-solid fa-angle-down arrow rotate"
+                    (click)="toggleSubMenu('.sub-menu-outer','sub-menu-outer-toggle','.sub-menu-outer-2','sub-menu-outer-toggle-2')"></i>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-icon-container cls3">
+        <div class="icon">
+            <i class='fa-solid fa-house icon-col'></i>
+        </div>
+        <div class="menu">
+            <ul class="menu-items">
+                <li>Report</li>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-icon-container cls4">
+        <div class="icon">
+            <i class='fa-solid fa-house icon-col'></i>
+        </div>
+        <div class="menu">
+            <ul class="menu-items">
+                <li>Administration
+                    <ul class="sub-menu-outer-2">
+                        <div class="inner-sub-menu">
+                            <li>Master
+                                <ul class="innermost-sub-menu mt-1">
+                                    <li><a routerLink="/main/user">Add User</a></li>
+                                    <li ><a href="#">Add Details</a></li>
+                                    <li ><a routerLink="/main/village">Village</a></li>
+                                    <li ><a routerLink="/main/yojana">Yojana</a></li>
+                                    <li  ><a routerLink="/main/land">Land Type</a></li>
+                                </ul>
+                            </li>
+                            <i class="fa-solid fa-angle-down inner-arrow " (click)="toggleInnerSubMenu('.innermost-sub-menu','innermost-sub-menu-desplay')"></i>
+                        </div>
+                    </ul>
+                </li>
+                <i class="fa-solid fa-angle-down arrow "
+                    (click)="toggleSubMenu('.sub-menu-outer-2','sub-menu-outer-toggle-2','.sub-menu-outer','sub-menu-outer-toggle')"></i>
+            </ul>
+        </div>
+    </div>
+    <div class="menu-icon-container cls5">
+        <div class="icon">
+            <i class='fa-solid fa-house icon-col'></i>
+        </div>
+        <div class="menu">
+            <ul class="menu-items">
+                <li>Help</li>
+            </ul>
+        </div>
+    </div>
+</div>

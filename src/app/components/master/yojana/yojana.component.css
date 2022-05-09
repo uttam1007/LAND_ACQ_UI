@@ -1,0 +1,104 @@
+.card h2 {
+    border-bottom: 1px solid grey;
+}
+
+.upload-box {
+    font-size: 16px;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0px 5px 10px #aaa;
+    width: 300px;
+    outline: none;
+}
+
+::-webkit-file-upload-button {
+    color: white;
+    background: teal;
+    padding: 20px;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 5px 10px #aaa;
+    outline: none;
+    cursor: pointer;
+}
+
+::-webkit-file-upload-button:hover {
+    background: rgb(2, 67, 67);
+}
+
+.file-filed-container {
+    border: 2px dotted gray;
+    width: 550px;
+    padding: 22px 70px;
+    margin: auto;
+    border-radius: 5px;
+}
+
+.pdf-sty {
+    width: fit-content;
+    position: relative;
+    top: 15px;
+    left: 10px;
+    background-color: coral;
+    color: #fff;
+    padding: 3px;
+    border-radius: 2px;
+}
+
+@media(max-width: 780px) {
+    .file-filed-container {
+        width: 450px;
+    }
+
+    .upload-box {
+        width: 200px;
+        font-size: 14px;
+    }
+
+    ::-webkit-file-upload-button {
+        padding: 10px;
+        /* font-size: 14px; */
+    }
+
+    .pdf-sty{
+        left: 60px;
+    }
+}
+
+@media(max-width: 670px) {
+    .file-filed-container {
+        width: 350px;
+        padding: 22px 20px;
+    }
+    .pdf-sty{
+        left: 85px;
+    }
+}
+
+@media(max-width: 550px) {
+    .file-filed-container {
+        width: 190px;
+    }
+
+    .upload-box {
+        width: 150px;
+    }
+
+    .mr-sty{
+        margin-top: 15px;
+    }
+    .pdf-sty{
+        font-size: 10px;
+        left: 110px;
+    }
+}
+@media(max-width: 500px){
+    .pdf-sty{
+        left: 85px;
+    }
+}
+@media(max-width: 400px){
+    .pdf-sty{
+        left: 50px;
+    }
+}

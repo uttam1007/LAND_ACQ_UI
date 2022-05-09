@@ -1,0 +1,18 @@
+.eye-content {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+}
+
+.card h2 {
+    border-bottom: 1px solid grey;
+}
+
+mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}

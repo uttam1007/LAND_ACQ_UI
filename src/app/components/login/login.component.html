@@ -1,0 +1,34 @@
+<div class="form-img-container">
+    <div class="img-container">
+        <h2>Land Acquisition</h2>
+        <img src="../../../assets/login.jpeg"
+            alt="">
+        <h1></h1>
+    </div>
+    <div class="form-container">
+        <h2>Land Acquisition</h2>
+        <div class="from-mar">
+            <form class="form-item">
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput type="text" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline" class="eye-content">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="{{passwordDisplay?'text':'password'}}" required>
+                    <i class="{{passwordDisplay?'fa-solid fa-eye  eye':'fa-regular fa-eye-slash eye'}}"
+                        (click)="togglePassDisplay()"></i>
+                </mat-form-field>
+                <a routerLink="/main">
+                    <button mat-raised-button class="btn-sty btn-hovers">Login</button>
+                </a>
+            </form>
+            <div class="buttom-container">
+                <button mat-raised-button class=" btn-border">Forgot Password</button>
+                <a routerLink="/register">
+                    <button mat-raised-button class=" btn-border">Register</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

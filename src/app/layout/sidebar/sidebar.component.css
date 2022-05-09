@@ -1,0 +1,130 @@
+.sidebar-container {
+    width: 250px;
+    background-color: #253544;
+    padding: 15px 10px 0px 10px;
+    height: 100%;
+}
+
+ul li {
+    list-style: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+
+.menu-icon {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+    display: none;
+}
+
+.icon-col {
+    font-size: 20px;
+    color: white;
+    padding-left: 5px;
+}
+
+.menu-icon-container {
+    display: flex;
+}
+
+.active{
+    background-color: #fcfdff0c;
+    border-radius: 5px;
+}
+
+.icon {
+    padding-top: 5px;
+    height: 30px;
+} 
+
+.menu {
+    width: 100%;
+    overflow: hidden;
+    padding: 8px 5px 0px 0px;
+}
+
+.arrow {
+    color: white;
+    cursor: pointer;
+    position: sticky;
+    right: 0px;
+    height: 20px;
+    padding-left: 150px;
+}
+
+.inner-arrow{
+    color: white;
+    cursor: pointer;
+    position: sticky;
+    right: 0px;
+    font-size: 20px;
+    padding-left: 150px;
+    height: 25px;
+}
+
+.menu-items {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.sub-menu-outer {
+    margin-top: 10px;
+    width: 200px;
+    margin-left: -33px;
+    display: none;
+}
+
+.sub-menu-outer-toggle {
+    display: block;
+}
+
+.sub-menu-outer-2 {
+    display: none;
+    width: 195px;
+    margin-left: -33px;
+    padding-top: 8px;
+}
+
+.inner-sub-menu{
+    display: flex;
+    width: 166px;
+    justify-content: space-between;
+}
+
+.innermost-sub-menu{
+    margin-left: -33px;
+    display: none;
+    width: 150px;
+}
+
+.innermost-sub-menu-desplay{
+    display: block;
+}
+
+.sub-menu-outer-toggle-2 {
+    display: block;
+}
+
+.menu-icon-container:hover{
+    background-color: teal;
+    border-radius: 5px;
+}
+
+@media(max-width: 900px) {
+    .resSideWidth {
+        width: 60px;
+    }
+    .menu-icon{
+        display: block;
+    }
+}

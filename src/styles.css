@@ -1,0 +1,12 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aliceblue !important;
+    font-family: sans-serif;
+}
+@import "~@ng-select/ng-select/themes/material.theme.css";
