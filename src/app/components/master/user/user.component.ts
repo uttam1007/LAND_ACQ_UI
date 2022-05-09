@@ -55,7 +55,7 @@ export class UserComponent implements AfterViewInit {
         text: 'Plz fill all field !'
       })
     } else {
-      if (this.ValidateEmail(this.Obj['email']) == true) {
+      if (this.ValidateEmail(this.Obj['email']) == true && this.ValidatePassword(this.Obj['password'])) {
         this.service.createData(this.Obj).subscribe(() => {
           Swal.fire({
             icon: 'success',
@@ -64,11 +64,19 @@ export class UserComponent implements AfterViewInit {
           })
         })
       } else {
-        Swal.fire({
-          icon: 'info',
-          title: 'Error',
-          text: "You have entered an invalid email address!"
-        })
+        if (this.ValidateEmail(this.Obj['email']) == false) {
+          Swal.fire({
+            icon: 'info',
+            title: 'Error',
+            text: "You have entered an invalid email address!"
+          })
+        } else {
+          Swal.fire({
+            icon: 'info',
+            title: 'Error',
+            text: "Conform Password does not match with Password"
+          })
+        }
       }
     }
   }
@@ -81,6 +89,15 @@ export class UserComponent implements AfterViewInit {
     }
     else {
       return false;
+    }
+  }
+
+  // function to compare password
+  ValidatePassword(pass){
+    if(this.Obj['conPassword'] == pass){
+      return true
+    }else{
+      return false
     }
   }
 

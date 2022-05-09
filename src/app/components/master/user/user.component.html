@@ -39,7 +39,7 @@
             <div class="col">
                 <mat-form-field appearance="outline" class="eye-content">
                     <mat-label>Conform Password</mat-label>
-                    <input matInput type="{{ConPasswordDisplay?'text':'password'}}" [(ngModel)]="Obj['password']">
+                    <input matInput type="{{ConPasswordDisplay?'text':'password'}}" [(ngModel)]="Obj['conPassword']">
                     <i class="{{ConPasswordDisplay?'fa-solid fa-eye  eye':'fa-regular fa-eye-slash eye'}}"
                         (click)="toggleConPassDisplay()"></i>
                 </mat-form-field>
