@@ -48,7 +48,7 @@ export class UserComponent implements AfterViewInit {
   }
 
   save() {
-    if (this.Obj['name'] == null || this.Obj['username'] == null || this.Obj['email'] == null || this.Obj['password'] == null || this.Obj['number'] == null) {
+    if (this.Obj['name'] == null || this.Obj['username'] == null || this.Obj['email'] == null || this.Obj['password'] == null || this.Obj['number'] == null || this.Obj['conPassword'] == null) {
       Swal.fire({
         icon: 'error',
         title: 'Error',
