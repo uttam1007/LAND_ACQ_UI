@@ -1,8 +1,10 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Inject, OnInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { ApiServiceService } from '../../../service/api-service.service'
+import { MatTable, MatTableDataSource } from '@angular/material/table';
+import { ApiServiceService } from '../../../service/api-service.service';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import Swal from 'sweetalert2'
 
 @Component({
@@ -20,6 +22,7 @@ export class UserComponent implements AfterViewInit {
     this.setDataSourceAttributes();
   }
 
+  @ViewChild(MatTable) table: MatTable<any>;
   @ViewChild(MatPaginator) set matPaginator(mp: MatPaginator) {
     this.paginator = mp;
     this.setDataSourceAttributes();
@@ -30,7 +33,7 @@ export class UserComponent implements AfterViewInit {
 
   displayedColumns: string[] = ['Sno', 'name', 'username', 'email', 'number', 'action'];
 
-  constructor(private service: ApiServiceService) {
+  constructor(private service: ApiServiceService, public dialog: MatDialog) {
 
   }
 
@@ -43,40 +46,55 @@ export class UserComponent implements AfterViewInit {
 
   ngOnInit(): void {
 
-    this.getAlldata();
+    this.getAllUser();
 
   }
 
+  // add user
   save() {
-    if (this.Obj['name'] == null || this.Obj['username'] == null || this.Obj['email'] == null || this.Obj['password'] == null || this.Obj['number'] == null || this.Obj['conPassword'] == null) {
+    if (this.Obj['name'] == null || this.Obj['userName'] == null || this.Obj['email'] == null || this.Obj['password'] == null || this.Obj['mobileNumber'] == null || this.Obj['conPassword'] == null) {
       Swal.fire({
-        icon: 'error',
-        title: 'Error',
+        icon: 'info',
+        title: 'info',
         text: 'Plz fill all field !'
       })
     } else {
-      if (this.ValidateEmail(this.Obj['email']) == true && this.ValidatePassword(this.Obj['password'])) {
-        this.service.createData(this.Obj).subscribe(() => {
-          Swal.fire({
-            icon: 'success',
-            title: 'success',
-            text: 'Successfully Submited'
-          })
+      if (this.ValidateEmail(this.Obj['email']) == false) {
+        Swal.fire({
+          icon: 'info',
+          title: 'info',
+          text: "You have entered an invalid email address!"
+        })
+      } else if (this.ValidatePassword() == false) {
+        Swal.fire({
+          icon: 'info',
+          title: 'info',
+          text: "Conform Password does not match with Password"
+        })
+      } else if (String(this.Obj['mobileNumber']).length != 10) {
+        Swal.fire({
+          icon: 'info',
+          title: 'info',
+          text: "You have entered an invalid mobile number!"
         })
       } else {
-        if (this.ValidateEmail(this.Obj['email']) == false) {
-          Swal.fire({
-            icon: 'info',
-            title: 'Error',
-            text: "You have entered an invalid email address!"
-          })
-        } else {
-          Swal.fire({
-            icon: 'info',
-            title: 'Error',
-            text: "Conform Password does not match with Password"
-          })
-        }
+        this.service.addUser(this.Obj).subscribe({
+          next: () => {
+            Swal.fire({
+              icon: 'success',
+              title: 'success',
+              text: 'Successfully Submited'
+            })
+            this.getAllUser();
+          },
+          error: () => {
+            Swal.fire({
+              icon: 'error',
+              title: 'error',
+              text: 'Something Went Wrong !'
+            })
+          }
+        })
       }
     }
   }
@@ -93,19 +111,53 @@ export class UserComponent implements AfterViewInit {
   }
 
   // function to compare password
-  ValidatePassword(pass){
-    if(this.Obj['conPassword'] == pass){
+  ValidatePassword() {
+    if (this.Obj['password'] == this.Obj['conPassword']) {
       return true
-    }else{
+    } else {
       return false
     }
   }
 
-  // getAll data
-  getAlldata() {
-    this.service.getAllData().subscribe((res) => {
+  // get user data
+  getAllUser() {
+    this.service.getAllUser().subscribe((res) => {
       this.readData = res
       this.dataSource = new MatTableDataSource(this.readData)
+    })
+  }
+
+  // delete user
+  deleteUser(id: any) {
+    Swal.fire({
+      title: 'Are you sure?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.service.deleteUser(id).subscribe({
+          next: () => {
+            this.getAllUser();
+          },
+          error: () => {
+            Swal.fire({
+              icon: 'error',
+              title: 'error',
+              text: 'Something Went Wrong !'
+            })
+          }
+        })
+
+        Swal.fire(
+          'Deleted!',
+          'Your data has been deleted.',
+          'success'
+        )
+      }
     })
   }
 
@@ -131,7 +183,6 @@ export class UserComponent implements AfterViewInit {
     this.displayList = true
   }
 
-
   setDataSourceAttributes() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -150,5 +201,53 @@ export class UserComponent implements AfterViewInit {
     }
   }
 
+  openDialog(i: any): void {
+    const dialogRef = this.dialog.open(updateDialog, {
+      width: '600px',
+      data: this.readData[i]
+    });
+    dialogRef.afterClosed()
+  }
+}
 
+// update-dialog-html
+@Component({
+  selector: 'update-dialog',
+  templateUrl: './update-dialog.html',
+})
+export class updateDialog implements OnInit {
+
+  constructor(public dialogRef: MatDialogRef<updateDialog>, @Inject(MAT_DIALOG_DATA) public Obj1: any, private service: ApiServiceService) { }
+
+  ngOnInit(): void {
+    this.Obj = { ...this.Obj1 }
+  }
+
+  // update user
+  Obj = {}
+  updateUser() {
+    this.dialogRef.close();
+    this.service.updateUser(this.Obj["id"], this.Obj).subscribe({
+      next: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'success',
+          text: 'Updated Successfully'
+        }).then(function () {
+          location.reload()
+        })
+      },
+      error: () => {
+        Swal.fire({
+          icon: 'error',
+          title: 'error',
+          text: 'Something Went Wrong !'
+        })
+      }
+    })
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 }
