@@ -25,6 +25,7 @@
     "metismenu": "^3.0.7",
     "ngx-device-detector": "^3.0.0",
     "rxjs": "~7.5.0",
+    "spinners-angular": "^0.0.5",
     "sweetalert2": "^11.4.10",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

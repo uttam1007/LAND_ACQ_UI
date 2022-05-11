@@ -23,7 +23,6 @@ export class VillageComponent implements OnInit {
     this.setDataSourceAttributes();
   }
 
-  
   dataSource:any = [
     {Sno: 1, ID: '4756', name:'abc', village:'1234567891'},
     {Sno: 2, ID: '7896', name:'xyz', village:'1234567892'},
