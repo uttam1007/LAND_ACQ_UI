@@ -1,19 +1,21 @@
-.footer-container{
-    background-color:#253544;
+.footer-container {
+    background-color: #253544;
     height: 60px;
     width: 100%;
 }
-.footer h3{
+
+.footer h3 {
     color: white;
 }
-.foot-header{
+
+.foot-header {
     letter-spacing: 2px;
     text-align: center;
     padding-top: 15px;
 }
 
-@media(max-width: 400px){
-    .footer h3{
+@media(max-width: 400px) {
+    .footer h3 {
         font-size: 10px;
     }
 }

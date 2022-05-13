@@ -19,8 +19,8 @@
                     <i class="{{passwordDisplay?'fa-solid fa-eye  eye':'fa-regular fa-eye-slash eye'}}"
                         (click)="togglePassDisplay()"></i>
                 </mat-form-field>
-                <a routerLink="/main">
-                    <button mat-raised-button class="btn-sty btn-hovers">Login</button>
+                <a routerLink="/main/dashboard">
+                    <button mat-raised-button class="btn-sty btn-hovers" (click)="show()">Login</button>
                 </a>
             </form>
             <div class="buttom-container">

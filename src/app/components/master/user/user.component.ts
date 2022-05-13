@@ -151,7 +151,7 @@ export class UserComponent implements AfterViewInit {
             })
           }
         })
-
+        
         Swal.fire(
           'Deleted!',
           'Your data has been deleted.',

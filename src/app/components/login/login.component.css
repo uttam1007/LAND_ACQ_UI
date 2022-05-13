@@ -71,7 +71,7 @@
     border: 2px solid black;
 }
 .btn-hovers:hover{
-    background-color: teal;
+    background-color: rgb(203, 31, 31);
     color: white;
     border: none;
 }

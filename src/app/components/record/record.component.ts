@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecordComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+    
+
   }
 
 }

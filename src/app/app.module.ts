@@ -33,7 +33,7 @@ import { YojanaComponent } from './components/master/yojana/yojana.component';
 import { LandtypeComponent } from './components/master/landtype/landtype.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatDialogModule} from '@angular/material/dialog';
-import { SpinnerCircularModule } from 'spinners-angular/spinner-circular';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -73,7 +73,7 @@ import { SpinnerCircularModule } from 'spinners-angular/spinner-circular';
     MatPaginatorModule,
     HttpClientModule,
     MatDialogModule,
-    SpinnerCircularModule
+    MatStepperModule
   ],
   providers: [],
   bootstrap: [AppComponent]
