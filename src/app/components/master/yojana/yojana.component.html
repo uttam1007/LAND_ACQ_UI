@@ -58,8 +58,8 @@
             <input matInput (keyup)="applyFilter($event)" placeholder="Search here..." #input>
         </mat-form-field>
     </div>
-    <div class="row">
-        <table mat-table [dataSource]="dataSource" matSort>
+    <div class="row" style="overflow-x: auto;">
+        <table mat-table [dataSource]="dataSource" matSort >
 
             <ng-container matColumnDef="Sno">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>Sno. </th>
