@@ -122,7 +122,7 @@ export class UserComponent implements AfterViewInit {
   // get user data
   getAllUser() {
     this.service.getAllUser().subscribe((res) => {
-      this.readData = res
+      this.readData = res.users
       this.dataSource = new MatTableDataSource(this.readData)
     })
   }

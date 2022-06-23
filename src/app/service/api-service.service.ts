@@ -14,11 +14,11 @@ export class ApiServiceService {
   apiUrl = environment.localhost
 
   getAllUser(): Observable<any> {
-    return this.http.get(`${this.apiUrl}/user`); 
+    return this.http.get(`${this.apiUrl}/user/all`); 
   }
 
   addUser(data: any): Observable<any> {
-    return this.http.post(`${this.apiUrl}/user`, data, {responseType: "text"})
+    return this.http.post(`${this.apiUrl}/user/register`, data, {responseType: "text"})
   }
 
   updateUser(id: any,data: any): Observable<any> {  
@@ -29,4 +29,17 @@ export class ApiServiceService {
     return this.http.delete(`${this.apiUrl}/user/${id}`,{responseType: "text"})
   }
 
+  yojanaAdd(data: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/yojana/add`, data, {responseType: "text"})
+  }
+
+  yojanaDoc_4(data: any, id:any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/yojana/doc4/${id}`, data, {responseType: "text"})
+  }
+  yojanaDoc_6(data: any,  id:any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/yojana/doc6/${id}`, data, {responseType: "text"})
+  }
+  yojanaDoc_award(data: any, id:any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/yojana/award-doc/${id}`, data, {responseType: "text"})
+  }
 }

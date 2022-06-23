@@ -6,43 +6,43 @@
     </div>
     <div class="mb-3 row justify-content-center">
         <div class="col-12 col-lg-2">
-            <label for="yojana" class=" col-form-label">Add Yojana</label>
+            <label for="yojana" class=" col-form-label" >Add Yojana</label>
         </div>
         <div class="col-12 col-lg-4">
-            <input type="text" class="form-control" id="yojana">
+            <input type="text" class="form-control" id="yojana" [(ngModel)]="Obj['name']">
         </div>
     </div>
     <div class="mb-3 row justify-content-center">
         <div class="col-12 col-lg-2 ">
-            <label for="acquisation" class="form-label">Acquisation Act</label>
+            <label for="acquisation" class="form-label" >Acquisation Act</label>
         </div>
         <div class="col-12 col-lg-4">
-            <input type="text" class="form-control" id="acquisation">
+            <input type="text" class="form-control" id="acquisation" [(ngModel)]="Obj['acquisation_act']">
         </div>
     </div>
     <div style=" width: 550px; margin: auto; position: relative; top: 15px;">
-        <h4 class="pdf-sty">Dhara4 Document Upload</h4>
+        <h4 class="pdf-sty" >Dhara4 Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box">
+        <input type="file" class="upload-box" [(ngModel)]="Obj['dhara4document']">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div style=" width: 550px; margin: auto;  position: relative; top: 15px;">
         <h4 class="pdf-sty">Dhara6 Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box">
+        <input type="file" class="upload-box" [(ngModel)]="Obj['dhara6document']">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div style=" width: 550px; margin: auto;  position: relative; top: 15px;">
         <h4 class="pdf-sty">Award Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box">
+        <input type="file" class="upload-box" [(ngModel)]="Obj['awarddocument']">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div class="mt-4 text-center">
-        <button class="btn btn-success">Save</button>
+        <button class="btn btn-success" (click)="addYojana()">Save</button>
     </div>
 </div>
 
