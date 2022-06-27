@@ -24,21 +24,21 @@
         <h4 class="pdf-sty" >Dhara4 Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box" [(ngModel)]="Obj['dhara4document']">
+        <input type="file" class="upload-box" (change)="setDhar4($event)">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div style=" width: 550px; margin: auto;  position: relative; top: 15px;">
         <h4 class="pdf-sty">Dhara6 Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box" [(ngModel)]="Obj['dhara6document']">
+        <input type="file" class="upload-box"  (change)="setDhar6($event)">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div style=" width: 550px; margin: auto;  position: relative; top: 15px;">
         <h4 class="pdf-sty">Award Document Upload</h4>
     </div>
     <div class="file-filed-container">
-        <input type="file" class="upload-box" [(ngModel)]="Obj['awarddocument']">
+        <input type="file" class="upload-box"  (change)="setAward($event)">
         <button class="btn btn-primary ms-4 mr-sty">Upload</button>
     </div>
     <div class="mt-4 text-center">
